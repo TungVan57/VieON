@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { Row, Col, Button } from "antd";
+import { Row, Col, Button, Popover } from "antd";
 import Icon, {
   UserOutlined,
   DownloadOutlined,
@@ -10,6 +10,46 @@ import Icon, {
   DribbbleOutlined,
   RedditOutlined,
 } from "@ant-design/icons";
+
+const packageSignContent = (
+  <div>
+    <div className="pane_item">
+      <img
+        src="https://static2.vieon.vn/vieon-images/2022-payment-image/04/29/introPackages-icon/icon-promotion-vip.svg"
+        alt="icon promotion"
+      />
+      <span>100.000+ giờ nội dung & 200 kênh truyền hình</span>
+    </div>
+    <div className="pane_item">
+      <img
+        src="https://static2.vieon.vn/testing-vieon-web-v5/assets/img/sprites/icon-promotion-hot.svg"
+        alt="icon promotion"
+      />
+      <span>Xem nội dung sớm nhất & độc quyền</span>
+    </div>
+    <div className="pane_item">
+      <img
+        src="https://static2.vieon.vn/testing-vieon-web-v5/assets/img/sprites/icon-promotion-ads.svg"
+        alt="icon promotion"
+      />
+      <span>Không quảng cáo</span>
+    </div>
+    <div className="pane_item">
+      <img
+        src="https://static2.vieon.vn/testing-vieon-web-v5/assets/img/sprites/icon-promotion-sub.svg"
+        alt=""
+      />
+      <span>Tùy chọn Phụ đề/ Lồng tiếng/ Thuyết minh </span>
+    </div>
+    <div className="pane_item">
+      <img
+        src="https://static2.vieon.vn/testing-vieon-web-v5/assets/img/sprites/icon-promotion-4k.svg"
+        alt="icon promotion"
+      />
+      <span>Xem chất lượng hình ảnh Full HD/4K</span>
+    </div>
+  </div>
+);
 const Header: React.FC = () => {
   return (
     <header>
@@ -230,32 +270,33 @@ const Header: React.FC = () => {
         </Col>
         <Col className="top-bar-right " span={8}>
           <div className="package-sign relative">
-            <Button>Đăng ký gói</Button>
+            <Popover
+              content={packageSignContent}
+              title="Đăng ký gói nhận những quyền lợi của VIP"
+            >
+              <Button>Đăng ký gói</Button>
+            </Popover>
           </div>
           <div className="insert-code relative">
-            <Button>Nhập mã VieON</Button>
+            <Popover title="Nhấn để nhập mã ưu đãi tặng gói">
+              <Button>Nhập mã VieON</Button>
+            </Popover>
           </div>
           <ul className="menu relative">
             <li className="menu_item">
-              <Button>
-                <span>
-                  <SearchOutlined />
-                </span>
-              </Button>
+              <Popover title="Nhấn để tìm kiếm nội dung">
+                <SearchOutlined className="icon" />
+              </Popover>
             </li>
             <li className="menu_item">
-              <Button>
-                <span>
-                  <DownloadOutlined />
-                </span>
-              </Button>
+              <Popover title="Nhấn để tải ứng dụng">
+                <DownloadOutlined className="icon" />
+              </Popover>
             </li>
             <li className="menu_item">
-              <Button>
-                <span>
-                  <UserOutlined />
-                </span>
-              </Button>
+              <Popover title="Nhấn để đăng nhập / đăng ký">
+                <UserOutlined className="icon" />
+              </Popover>
             </li>
           </ul>
         </Col>

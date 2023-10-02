@@ -12,11 +12,14 @@ a {
   color: #ccccccff;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.25s;
 }
 .active {
   color: #fff;
 }
-
+a:hover {
+  color: #fff;
+}
 li {
   list-style: none;
 }
@@ -31,3 +34,14 @@ li {
   border-top-width: 0.0625rem;
   border-top-style: solid;
 }
+// .ant-btn-default {
+//   color: #000;
+//   &:hover {
+//     background-color: linear-gradient(
+//       90deg,
+//       #da9e1c 0,
+//       #da9e1c 100%
+//     ) !important;
+//     border-color: none !important;
+//   }
+// }
