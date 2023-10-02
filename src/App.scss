@@ -24,8 +24,8 @@ li {
   list-style: none;
 }
 .container {
-  width: 95%;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
   font-size: 2rem;
   color: #fff;
 }
@@ -34,14 +34,3 @@ li {
   border-top-width: 0.0625rem;
   border-top-style: solid;
 }
-// .ant-btn-default {
-//   color: #000;
-//   &:hover {
-//     background-color: linear-gradient(
-//       90deg,
-//       #da9e1c 0,
-//       #da9e1c 100%
-//     ) !important;
-//     border-color: none !important;
-//   }
-// }

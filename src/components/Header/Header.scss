@@ -1,14 +1,17 @@
 header {
   position: fixed;
-  width: 95%;
+  width: 100%;
   top: 0;
   transition: background-color 0.32s ease-out;
   z-index: 1000;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+  border-bottom-color: #222222ff;
+  border-bottom-width: 0.0625rem;
+  border-bottom-style: solid;
   .top-bar {
     position: relative;
-    border-bottom-color: #222222ff;
-    border-bottom-width: 0.0625rem;
-    border-bottom-style: solid;
     .top-bar-left {
       display: flex;
       img,
@@ -18,19 +21,15 @@ header {
         .cls-1 {
           isolation: isolate;
         }
-
         .cls-2 {
           fill: #fff;
         }
-
         .cls-3 {
           fill: #0ad418;
         }
-
         .cls-4 {
           fill: url(#radial-gradient);
         }
-
         .cls-5 {
           mix-blend-mode: screen;
           fill: url(#linear-gradient);
@@ -41,8 +40,6 @@ header {
         ul {
           height: 100%;
           display: flex;
-          // align-items: center;
-
           a ::before {
             transition: all 0.2s ease;
             transform: scale(0);
