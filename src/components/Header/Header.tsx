@@ -10,6 +10,7 @@ import Icon, {
   DribbbleOutlined,
   RedditOutlined,
 } from "@ant-design/icons";
+import { useEffect, useState } from "react";
 
 const packageSignContent = (
   <div>
@@ -50,9 +51,26 @@ const packageSignContent = (
     </div>
   </div>
 );
+
 const Header: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header>
+    <header className={`${scrolled ? "scrolled" : ""}`}>
       <div className="container">
         <Row className="top-bar">
           <Col className="top-bar-left" span={16}>

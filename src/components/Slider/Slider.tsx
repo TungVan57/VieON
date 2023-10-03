@@ -6,23 +6,27 @@ import { CaretRightOutlined, InfoCircleOutlined } from "@ant-design/icons";
 
 const videoData = [
   {
-    url: "https://www.youtube.com/watch?v=8ugaeA-nMTc",
-    details: "Video 1 Details",
+    // url: "https://www.youtube.com/watch?v=8ugaeA-nMTc",
+    url: "https://trailer.vieon.vn/Teaser_OngChuCuaToi_50s.mp4",
+    details: "Ông Chủ Của Tôi",
     seeMoreLink: "https://example.com/details1",
   },
   {
-    url: "https://www.youtube.com/embed/eOrNdBpGMv8?si=8jsKdmAwLWL3Ehl_",
-    details: "Video 2 Details",
+    // url: "https://www.youtube.com/embed/eOrNdBpGMv8?si=8jsKdmAwLWL3Ehl_",
+    url: "https://trailer.vieon.vn/Teaser_DuaHuaLapLanh_38s.mp4",
+    details: "Dua Hua Lap Lanh",
     seeMoreLink: "https://example.com/details2",
   },
   {
-    url: "https://www.youtube.com/embed/d96cjJhvlMA?si=MABq9pHhg6gNwGqS",
-    details: "Video 3 Details",
+    // url: "https://www.youtube.com/embed/d96cjJhvlMA?si=MABq9pHhg6gNwGqS",
+    url: "https://trailer.vieon.vn/Teaser_NguoiYeuDau.mp4",
+    details: "Người yêu dấu",
     seeMoreLink: "https://example.com/details3",
   },
   {
-    url: "https://www.youtube.com/embed/xjDjIWPwcPU?si=duWXXeUXJiEoPNfG",
-    details: "Video 4 Details",
+    // url: "https://www.youtube.com/embed/xjDjIWPwcPU?si=duWXXeUXJiEoPNfG",
+    url: "https://trailer.vieon.vn/Teaser_2N1D_s02.mp4",
+    details: "2 Ngày 1 Đêm",
     seeMoreLink: "https://example.com/details4",
   },
 ];

@@ -2,16 +2,18 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  transition: background-color 0.32s ease-out;
+  transition: background-color 1s ease-out;
   z-index: 1000;
   font-size: 2rem;
   color: #fff;
-  background-color: #000;
-  border-bottom-color: #222222ff;
-  border-bottom-width: 0.0625rem;
-  border-bottom-style: solid;
+  background-color: transparent;
+  padding-bottom: 4rem;
   .top-bar {
     position: relative;
+    border-bottom-color: #ffffff1a;
+    border-bottom-width: 0.0625rem;
+    border-bottom-style: solid;
+    width: 100%;
     .top-bar-left {
       display: flex;
       img,
@@ -195,4 +197,7 @@ header {
   span {
     margin-left: 1rem;
   }
+}
+header.scrolled {
+  background-color: #111111e6;
 }
