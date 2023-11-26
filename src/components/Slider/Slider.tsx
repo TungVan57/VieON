@@ -7,8 +7,8 @@ import { CaretRightOutlined, InfoCircleOutlined } from "@ant-design/icons";
 const videoData = [
   {
     // url: "https://www.youtube.com/watch?v=8ugaeA-nMTc",
-    url: "https://trailer.vieon.vn/Teaser_OngChuCuaToi_50s.mp4",
-    details: "Ông Chủ Của Tôi",
+    url: "https://trailer.vieon.vn/Teaser_Kundo_KyNguyenTanBao.mp4",
+    details: "Kỷ Nguyên Tàn Bạo",
     seeMoreLink: "https://example.com/details1",
   },
   {
