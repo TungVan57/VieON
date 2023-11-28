@@ -1,0 +1,139 @@
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+ul.slick-dots.slick-dots-bottom {
+  margin: 0 110px 60px 40px; 
+  justify-content: flex-end;
+  
+}
+.slider-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .react-player {
+    width: 100% !important;
+    height: 100% !important;
+  }
+.film-detail{
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none; /* Ensures the overlay doesn't interfere with button clicks */
+  }
+  .video-details {
+    position: absolute;
+    bottom: 60px;
+    // left: 10px;
+    margin-bottom: 30px;
+    //   background-color: rgba(0, 0, 0, 0.5);
+    //   padding: 10px;
+    //   border-radius: 5px;
+    color: white;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+    
+    .detail-btn{
+        margin: 0 0 80px 45px;
+
+      .btn-1 {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 4px;
+        font-size: 20px;
+        margin-right: 12px;
+        // margin-bottom: 80px;
+        // margin-left: 45px;
+        // padding-bottom: 80px;
+        padding: 0px 30px;
+        color: #333333;
+        background-color: #fff;
+        height: 100%;
+  
+        &:hover {
+          color: #333333;
+          background-color: #fff;
+        }
+      }
+      .btn-2 {
+        display: inline-flex;
+        border: 1px solid #fff;
+        align-items: center;
+  
+        border-radius: 4px;
+        padding: 12px 30px;
+        font-size: 20px;
+        height: 100%;
+        color: #fff;
+        background-color: #333333;
+        &:hover {
+          color: #fff;
+          background-color: #333333;
+        }
+      }
+      .icon {
+        font-size: 30px;
+      }
+
+    }
+
+    .float-btn {
+
+      margin-right: 45px;
+      background-color: #333333;
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        font-size: 30px;
+      }
+      &:hover{
+        background-color: #333333;
+      }
+    }
+    &:last-child {
+      .video-details {
+        .float-btn {
+          margin-right: 0 !important; // Use !important to ensure it overrides other styles
+        }
+      }
+    }
+  // ul.slick-dots.slick-dots-bottom li button {
+  //     font-size: 16px; /* You can adjust this value */
+  // }
+  }
+  .control-btn {
+    margin-right: 20px;
+    bottom: 55px;
+    position: relative;
+    justify-content: flex-end;
+    display: flex;
+    .ct-btn{
+
+      background-color: #111111;
+      .icon-ct-btn{
+        font-size: 20px;
+      }
+    }
+    &:hover{
+      .ct-btn{
+        background-color: #111111 ;
+      }
+    }
+}
+}
+  
+}
