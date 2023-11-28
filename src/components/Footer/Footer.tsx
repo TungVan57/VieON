@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
 import "./Footer.scss";
 import { Col, Row } from "antd";
+
 const Footer: React.FC = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.body.scrollHeight;
+
+      setIsSticky(scrollY + windowHeight >= documentHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <footer>
       <div className="container border-top">

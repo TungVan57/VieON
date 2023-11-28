@@ -1,14 +1,21 @@
-import React, { useState } from "react";
-import { Carousel, Button } from "antd";
+import React, { useState, useRef } from "react";
+import { Carousel, Button, FloatButton } from "antd";
 import "./Slider.scss";
 import ReactPlayer from "react-player";
-import { CaretRightOutlined, InfoCircleOutlined } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  InfoCircleOutlined,
+  NotificationOutlined,
+  SoundOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from "@ant-design/icons";
 
 const videoData = [
   {
     // url: "https://www.youtube.com/watch?v=8ugaeA-nMTc",
-    url: "https://trailer.vieon.vn/Teaser_Kundo_KyNguyenTanBao.mp4",
-    details: "Kỷ Nguyên Tàn Bạo",
+    url: "https://trailer.vieon.vn/Teaser_OngChuCuaToi_50s.mp4",
+    details: "Ông Chủ Của Tôi",
     seeMoreLink: "https://example.com/details1",
   },
   {
@@ -32,60 +39,117 @@ const videoData = [
 ];
 
 const Slider: React.FC = () => {
-  const [open, setOpen] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [muteState, setMuteState] = useState<boolean[]>(
+    Array(videoData.length).fill(true)
+  );
 
-  const onChange = (checked: boolean) => {
-    setOpen(checked);
+  const carouselRef = useRef(null);
+
+  const toggleMute = (index: number) => {
+    const newMuteState = [...muteState];
+    newMuteState[index] = !newMuteState[index];
+    setMuteState(newMuteState);
+  };
+
+  const handleAfterChange = (current: number) => {
+    setCurrentSlide(current);
+  };
+
+  const handleVideoEnd = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % videoData.length);
+  };
+
+  const goToSlide = (slide: number) => {
+    if (carouselRef.current) {
+      (carouselRef.current as any).goTo(slide);
+    }
   };
 
   return (
-    <Carousel>
-      {videoData.map((data, index) => (
-        <div key={index} className="slider-video">
-          <ReactPlayer
-            url={data.url}
-            playing
-            muted
-            width="100%"
-            height="70%"
-            className="react-player"
-          />
-          <div className="video-details">
-            <Button
-              className="btn-1"
-              type="primary"
-              size="large"
-              href={data.seeMoreLink}
-              target="_blank"
-            >
-              <CaretRightOutlined className="icon" /> Xem ngay
-            </Button>
-            <Button
-              className="btn-2"
-              type="primary"
-              size="large"
-              href={data.seeMoreLink}
-              target="_blank"
-            >
-              <InfoCircleOutlined className="icon" />
-              Chi tiết
-            </Button>
+    <div className="slider-container">
+      <Carousel
+        ref={carouselRef}
+        afterChange={handleAfterChange}
+        effect="fade"
+        initialSlide={currentSlide}
+      >
+        {videoData.map((data, index) => (
+          <div key={index} className="slider-video">
+            <ReactPlayer
+              url={data.url}
+              playing={index === currentSlide}
+              muted={muteState[index]}
+              width="100%"
+              height="70%"
+              className="react-player"
+              onEnded={handleVideoEnd}
+              autoplay={false}
+            />
+            <div className="film-detail">
+              <div className="video-details">
+                <div className="detail-btn">
+                  <Button
+                    className="btn-1"
+                    type="primary"
+                    size="large"
+                    href={data.seeMoreLink}
+                    target="_blank"
+                  >
+                    <CaretRightOutlined className="icon" /> Xem ngay
+                  </Button>
+                  <Button
+                    className="btn-2"
+                    type="primary"
+                    size="large"
+                    href={data.seeMoreLink}
+                    target="_blank"
+                  >
+                    <InfoCircleOutlined className="icon" />
+                    Chi tiết
+                  </Button>
+                </div>
+                <div className="sound-btn">
+                  <Button
+                    className="float-btn"
+                    type="primary"
+                    size="large"
+                    shape="circle"
+                    onClick={() => toggleMute(index)}
+                    icon={
+                      muteState[index] ? (
+                        <NotificationOutlined className="icon" />
+                      ) : (
+                        <SoundOutlined className="icon" />
+                      )
+                    }
+                  />
+                </div>
+              </div>
+              <div className="control-btn">
+                <Button
+                  size="large"
+                  className="ct-btn"
+                  type="primary"
+                  shape="circle"
+                  icon={<LeftOutlined className="icon-ct-btn" />}
+                  onClick={() => goToSlide(currentSlide - 1)}
+                />
+                <Button
+                  size="large"
+                  className="ct-btn"
+                  type="primary"
+                  shape="circle"
+                  icon={<RightOutlined className="icon-ct-btn" />}
+                  onClick={() => goToSlide(currentSlide + 1)}
+                />
+              </div>
+            </div>
           </div>
-          {/* <div>
-            <FloatButton.Group
-              open={open}
-              trigger="click"
-              style={{ right: 24 }}
-              icon={<CustomerServiceOutlined />}
-            >
-              <FloatButton />
-              <FloatButton icon={<CommentOutlined />} />
-            </FloatButton.Group>
-            <Switch onChange={onChange} checked={open} style={{ margin: 16 }} />
-          </div> */}
-        </div>
-      ))}
-    </Carousel>
+        ))}
+      </Carousel>
+      <FloatButton.BackTop />
+    </div>
   );
 };
 
